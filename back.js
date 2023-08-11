@@ -13,10 +13,24 @@ console.log("Inicio!!!")
 //CRIAR SEVIDOR NODEjs
 //1 passo - importar o http
 const http = require('http')
+
 //2 passo --> criar servidor
-const nyServer = http.createServer( (req,res)=>{}  )
+const myServer = http.createServer( (req,res)=>{
+    console.log(req.url)
+
+    if(req.url === '/products'){
+        console.log("Mostrando produtos")
+    }else if(req.url === '/save'){
+        console.log("Salvando Produtos")
+    }else if(req.url === '/delete'){
+        console.log("Deletando produtos")
+    }else {
+        console.log("Não conheço")
+    }
+})
 //Abrindo porta do servidor
-nyServer.listen(8080,() =>{
+
+myServer.listen(8080,() =>{
     console.log('Sevidor no Ar....')
 })
 
